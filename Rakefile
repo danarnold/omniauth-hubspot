@@ -7,5 +7,5 @@ end
 
 desc "Build and release the gem"
 task :release => :build do
-  system "gem push omniauth-hubspot-#{OmniAuth::CreateSend::VERSION}.gem"
+  system "gem push omniauth-hubspot-#{OmniAuth::HubSpot::VERSION}.gem"
 end
