@@ -12,7 +12,7 @@ module OmniAuth
       option :client_options, {
         :site => 'https://app.hubspot.com',
         :authorize_url => '/auth/authenticate',
-        :token => '/auth/authenticate'
+        :token_url => '/auth/authenticate'
       }
 
       option :authorize_options, [:scope, :portalId]
