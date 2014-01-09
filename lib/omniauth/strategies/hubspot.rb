@@ -13,6 +13,8 @@ module OmniAuth
         :authorize_url => '/auth/authenticate'
       }
 
+      option :authorize_options, [:scope, :portalId]
+
     end
   end
 end
