@@ -9,8 +9,10 @@ module OmniAuth
       option :name, "hubspot"
       option :portalId, nil
 
-      option :client_options, {:site => "https://app.hubspot.com/auth/authenticate"}
-
+      option :client_options, {
+        :site => 'https://app.hubspot.com',
+        :authorize_url => '/auth/authenticate'
+      }
 
     end
   end
