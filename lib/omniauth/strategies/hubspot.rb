@@ -11,6 +11,9 @@ module OmniAuth
 
       option :client_options, {:site => "https://app.hubspot.com/auth/authenticate"}
 
+
     end
   end
 end
+
+OmniAuth.config.add_camelization 'hubspot', 'HubSpot'
