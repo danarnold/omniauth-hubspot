@@ -7,7 +7,6 @@ module OmniAuth
       args [:client_id]
 
       option :name, "hubspot"
-      option :portalId, nil
 
       option :client_options, {
         :site => 'https://app.hubspot.com',
