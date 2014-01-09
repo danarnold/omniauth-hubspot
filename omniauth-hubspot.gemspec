@@ -13,15 +13,15 @@ Gem::Specification.new do |gem|
 
   gem.authors       = ["Daniel Arnold"]
   gem.email         = ["darnold8@gmail.com"]
-  gem.description   = %q{An abstract OAuth2 strategy for OmniAuth.}
-  gem.summary       = %q{An abstract OAuth2 strategy for OmniAuth.}
+  gem.description   = %q{An OmniAuth strategy for authenticating with the HubSpot API.}
+  gem.summary       = %q{OmniAuth strategy for authenticating with HubSpot.}
   gem.homepage      = "https://github.com/danarnold/omniauth-hubspot"
   gem.license       = "MIT"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "omniauth-oauth2"
+  gem.name          = "omniauth-hubspot"
   gem.require_paths = ["lib"]
   gem.version       = OmniAuth::HubSpot::VERSION
 end
