@@ -2,8 +2,9 @@
 require File.expand_path('../lib/omniauth-hubspot/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.add_dependency 'omniauth', '~> 1.0'
-  gem.add_dependency 'oauth2', '~> 0.9.0'
+  gem.add_dependency 'omniauth'
+  gem.add_dependency 'oauth2'
+  gem.add_dependency 'omniauth-oauth2'
 
   gem.add_development_dependency 'rspec', '~> 2.7'
   gem.add_development_dependency 'rack-test'
@@ -22,5 +23,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "omniauth-oauth2"
   gem.require_paths = ["lib"]
-  gem.version       = OmniAuth::OAuth2::VERSION
+  gem.version       = OmniAuth::HubSpot::VERSION
 end
