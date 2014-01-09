@@ -27,7 +27,9 @@ module OmniAuth
           raise CallbackError.new(nil, :csrf_detected)
         end
 
-        self.access_token = params[:access_token]
+        self.access_token = request.params[:access_token]
+        self.refresh_token = request.params[:refresh_token]
+        self.expires_in = request.params[:expires_in]
 
         super
       rescue ::OAuth2::Error, CallbackError => e
