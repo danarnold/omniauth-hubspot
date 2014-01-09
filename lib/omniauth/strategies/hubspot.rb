@@ -7,10 +7,12 @@ module OmniAuth
       args [:client_id]
 
       option :name, "hubspot"
+      option :provider_ignores_state, true
 
       option :client_options, {
         :site => 'https://app.hubspot.com',
-        :authorize_url => '/auth/authenticate'
+        :authorize_url => '/auth/authenticate',
+        :token => '/auth/authenticate'
       }
 
       option :authorize_options, [:scope, :portalId]
