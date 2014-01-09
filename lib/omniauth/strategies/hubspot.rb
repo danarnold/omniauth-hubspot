@@ -31,7 +31,6 @@ module OmniAuth
         self.refresh_token = request.params[:refresh_token]
         self.expires_in = request.params[:expires_in]
 
-        super
       rescue ::OAuth2::Error, CallbackError => e
         fail!(:invalid_credentials, e)
       rescue ::MultiJson::DecodeError => e
