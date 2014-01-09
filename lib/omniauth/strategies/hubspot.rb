@@ -1,21 +1,17 @@
-require 'omniauth-oauth2'
+require 'omniauth-oauth'
 
 module OmniAuth
   module Strategies
-    class HubSpot < OmniAuth::Strategies::OAuth2
+    class HubSpot < OmniAuth::Strategies::OAuth
 
       args [:client_id]
 
       option :name, "hubspot"
-      option :provider_ignores_state, true
 
       option :client_options, {
         :site => 'https://app.hubspot.com',
-        :authorize_url => '/auth/authenticate',
-        :token_url => '/auth/authenticate'
+        :authorize_url => '/auth/authenticate'
       }
-
-      option :authorize_options, [:scope, :portalId]
 
     end
   end
