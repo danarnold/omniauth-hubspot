@@ -31,6 +31,8 @@ module OmniAuth
         self.refresh_token = request.params[:refresh_token]
         self.expires_in = request.params[:expires_in]
 
+        self.env['omniauth.auth'] = auth_hash
+        call_app!
       rescue ::OAuth2::Error, CallbackError => e
         fail!(:invalid_credentials, e)
       rescue ::MultiJson::DecodeError => e
