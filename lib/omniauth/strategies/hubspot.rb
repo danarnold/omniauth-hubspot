@@ -16,9 +16,6 @@ module OmniAuth
 
       option :authorize_options, [:scope, :portalId]
 
-      attr_accessor :refresh_token
-      attr_accessor :expires_in
-
       def callback_phase
         if request.params['error'] || request.params['error_reason']
           raise CallbackError.new(request.params['error'], request.params['error_description'] || request.params['error_reason'], request.params['error_uri'])
@@ -27,9 +24,10 @@ module OmniAuth
           raise CallbackError.new(nil, :csrf_detected)
         end
 
-        self.access_token = request.params[:access_token]
-        self.refresh_token = request.params[:refresh_token]
-        self.expires_in = request.params[:expires_in]
+        hash = {'token' = request.params[:access_token]}
+        hash.merge!('refresh_token' = request.params[:refresh_token])
+        hash.merge!('expires_in' = request.params[:expires_in])
+        self.access_token = hash
 
         self.env['omniauth.auth'] = auth_hash
         call_app!
@@ -44,9 +42,9 @@ module OmniAuth
       end
 
       credentials do
-        hash = {'token' => access_token}
-        hash.merge!('refresh_token' => refresh_token)
-        hash.merge!('expires_in' => expires_in)
+        hash = {'token' => access_token['token']}
+        hash.merge!('refresh_token' => access_token['refresh_token'])
+        hash.merge!('expires_in' => access_token['expires_in'])
         hash
       end
 
