@@ -24,9 +24,10 @@ module OmniAuth
           raise CallbackError.new(nil, :csrf_detected)
         end
 
-        hash = {'token' => request.params[:access_token]}
-        hash.merge!('refresh_token' => request.params[:refresh_token])
-        hash.merge!('expires_in' => request.params[:expires_in])
+        hash = Hashie::Mash.new
+        hash.token = request.params['access_token']
+        hash.refresh_token = request.params['refresh_token']
+        hash.expires_in = request.params['expires_in']
         self.access_token = hash
 
         self.env['omniauth.auth'] = auth_hash
