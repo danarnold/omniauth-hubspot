@@ -17,7 +17,7 @@ gem 'omniauth-hubspot'
 
 ## Usage
 
-You will need to define a custom [setup phase](https://github.com/intridea/omniauth/wiki/Setup-Phase) for this strategy to work. This is because [HubSpot requires a `portalId` to be set](https://developers.hubspot.com/auth/oauth_apps), which is customer-specific and therefore cannot be simply passed as a parameter to provider. The above setup phase link should give you an idea of the different ways to do this. My setup phase code looks roughly like the following.
+You will need to define a custom [setup phase](https://github.com/intridea/omniauth/wiki/Setup-Phase) for this strategy to work. This is because [HubSpot requires a `portalId` to be set](http://developers.hubspot.com/docs/methods/auth/oauth-overview), which is customer-specific and therefore cannot be simply passed as a parameter to provider. The above setup phase link should give you an idea of the different ways to do this. My setup phase code looks roughly like the following.
 
 ```ruby
 def setup
@@ -29,7 +29,7 @@ end
 
 If you are using multiple providers, you'll want to wrap an if statement around that so that you only set it when you're using HubSpot.
 
-Then, when adding the provider to your `omniauth.rb`, you will only need to specify a `client_id` and a `scope`. HubSpot's supported scopes are [here](https://developers.hubspot.com/auth/oauth_scopes). Note that although the documentation states to separate scopes with a `+`, you will actually need to use a space, as this is escaped into a `+`. Here is an example provider line:
+Then, when adding the provider to your `omniauth.rb`, you will only need to specify a `client_id` and a `scope`. HubSpot's supported scopes are [here](http://developers.hubspot.com/docs/methods/auth/initiate-oauth). Note that although the documentation states to separate scopes with a `+`, you will actually need to use a space, as this is escaped into a `+`. Here is an example provider line:
 
 ```ruby
 provider :hubspot, ENV['HUBSPOT_CLIENT_ID'], setup: true, scope: "contacts-rw offline"
