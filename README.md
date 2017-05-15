@@ -5,7 +5,7 @@ An OmniAuth strategy for authenticating with the HubSpot API.
 
 # No Longer Maintained
 
-This repository is no longer maintained.
+This repository is no longer maintained. You may want to try [advocately/omniauth-hubspot](https://github.com/advocately/omniauth-hubspot).
 
 ## Peculiarities
 
