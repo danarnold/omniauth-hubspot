@@ -3,6 +3,10 @@ OmniAuth HubSpot
 
 An OmniAuth strategy for authenticating with the HubSpot API.
 
+# No Longer Maintained
+
+This repository is no longer maintained.
+
 ## Peculiarities
 
 HubSpot has some peculiarities in their implementation of OAuth that I've accounted for in this strategy. Be aware that the authorization process does not use OAuth2's state parameter for securing sessions. Additionally, it does not use the POST to token URL phase of OAuth; instead, the tokens we need are passed as parameters right after the initial request phase. HubSpot also authenticates with only a Client ID and a Portal ID, instead of the standard Client ID and Client Secret.
